@@ -20,7 +20,6 @@ public class DataGenerators {
         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
         gen.addProvider(new ModRecipeProvider(gen));
-        gen.addProvider(new ModBlockModelProvider(gen, existingFileHelper));
 
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
         gen.addProvider(blockTags);

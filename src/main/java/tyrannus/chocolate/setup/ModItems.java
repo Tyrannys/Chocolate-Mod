@@ -26,37 +26,37 @@ public class ModItems{
     public static RegistryObject<Item> CHOCOLATE_CHIPS = ITEMS.register("chocolate_chips", ChocolateChipsItem::new);
 
     //blockitems
-    public static RegistryObject<BlockItem> CHOCOLATE_ORE_ITEM = register("chocolate_ore",
+    public static RegistryObject<BlockItem> CHOCOLATE_ORE_ITEM = ITEMS.register("chocolate_ore",()->
             new BlockItem(
                     CHOCOLATE_ORE.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
             )
     );
-    public static RegistryObject<BlockItem> CHOCOLATE_BLOCK_ITEM = register("chocolate_block",
+    public static RegistryObject<BlockItem> CHOCOLATE_BLOCK_ITEM = ITEMS.register("chocolate_block",()->
             new BlockItem(
                     CHOCOLATE_BLOCK.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
             )
     );
-    public static RegistryObject<BlockItem> MILK_CHOCOLATE_BLOCK_ITEM = register("milk_chocolate_block",
+    public static RegistryObject<BlockItem> MILK_CHOCOLATE_BLOCK_ITEM = ITEMS.register("milk_chocolate_block",()->
             new BlockItem(
                     MILK_CHOCOLATE_BLOCK.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
             )
     );
-    public static RegistryObject<BlockItem> DARK_CHOCOLATE_BLOCK_ITEM = register("dark_chocolate_block",
+    public static RegistryObject<BlockItem> DARK_CHOCOLATE_BLOCK_ITEM = ITEMS.register("dark_chocolate_block",()->
             new BlockItem(
                     DARK_CHOCOLATE_BLOCK.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
             )
     );
-    public static RegistryObject<BlockItem> CHOCOLATE_DIRT_ITEM = register("chocolate_dirt",
+    public static RegistryObject<BlockItem> CHOCOLATE_DIRT_ITEM = ITEMS.register("chocolate_dirt",()->
             new BlockItem(
                     CHOCOLATE_DIRT.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
             )
     );
-    public static RegistryObject<BlockItem> CHOCOLATE_GRASS_ITEM = register("chocolate_grass",
+    public static RegistryObject<BlockItem> CHOCOLATE_GRASS_ITEM = ITEMS.register("chocolate_grass",()->
             new BlockItem(
                     CHOCOLATE_GRASS.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
@@ -107,24 +107,24 @@ public class ModItems{
                     (new Item.Properties()).group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
 
     //Door and Trapdoor items
-    public static final RegistryObject<BlockItem> CHOCOLATE_DOOR = register("chocolate_door",
+    public static final RegistryObject<BlockItem> CHOCOLATE_DOOR = ITEMS.register("chocolate_door",()->
             new TallBlockItem(ModBlocks.CHOCOLATE_DOOR.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
-    public static final RegistryObject<BlockItem> MILK_CHOCOLATE_DOOR = register("milk_chocolate_door",
+    public static final RegistryObject<BlockItem> MILK_CHOCOLATE_DOOR = ITEMS.register("milk_chocolate_door",()->
             new TallBlockItem(ModBlocks.MILK_CHOCOLATE_DOOR.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
-    public static final RegistryObject<BlockItem> DARK_CHOCOLATE_DOOR = register("dark_chocolate_door",
+    public static final RegistryObject<BlockItem> DARK_CHOCOLATE_DOOR = ITEMS.register("dark_chocolate_door",()->
             new TallBlockItem(ModBlocks.DARK_CHOCOLATE_DOOR.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
 
     //Trapdoor items
-    public static final RegistryObject<BlockItem> CHOCOLATE_TRAPDOOR = register("chocolate_trapdoor",
+    public static final RegistryObject<BlockItem> CHOCOLATE_TRAPDOOR = ITEMS.register("chocolate_trapdoor", ()->
             new BlockItem(ModBlocks.CHOCOLATE_TRAPDOOR.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
-    public static final RegistryObject<BlockItem> MILK_CHOCOLATE_TRAPDOOR = register("milk_chocolate_trapdoor",
+    public static final RegistryObject<BlockItem> MILK_CHOCOLATE_TRAPDOOR = ITEMS.register("milk_chocolate_trapdoor",()->
             new BlockItem(ModBlocks.MILK_CHOCOLATE_TRAPDOOR.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
-    public static final RegistryObject<BlockItem> DARK_CHOCOLATE_TRAPDOOR = register("dark_chocolate_trapdoor",
+    public static final RegistryObject<BlockItem> DARK_CHOCOLATE_TRAPDOOR = ITEMS.register("dark_chocolate_trapdoor",()->
             new BlockItem(ModBlocks.DARK_CHOCOLATE_TRAPDOOR.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
 

@@ -19,12 +19,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         simpleBlock(ModBlocks.CHOCOLATE_DIRT.get());
-        {
-            ResourceLocation closed = modLoc("block/chocolate_trapdoor_closed");
-            ResourceLocation open = modLoc("block/chocolate_trapdoor_open");
-            trapdoorBlock(ModBlocks.CHOCOLATE_TRAPDOOR.get(), closed, ) {
 
-        }
         }
         // public void trapdoorBlock(TrapDoorBlock block, ResourceLocation texture, boolean orientable) {
         //        trapdoorBlockInternal(block, block.getRegistryName().toString(), texture, orientable);
@@ -82,5 +77,3 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
     }
-
-}
