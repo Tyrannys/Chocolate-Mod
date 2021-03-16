@@ -29,7 +29,7 @@ import java.util.Random;
 
 public class EntityChocolateSlime extends SlimeEntity {
     public EntityChocolateSlime(EntityType<? extends EntityChocolateSlime> type, World worldIn) {
-        super((EntityType<? extends SlimeEntity>) ModEntities.CHOCOLATE_SLIME, worldIn);
+        super(type, worldIn);
     }
 
 

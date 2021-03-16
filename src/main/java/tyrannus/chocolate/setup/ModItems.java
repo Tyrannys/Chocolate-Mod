@@ -103,7 +103,7 @@ public class ModItems{
             )
     );
     public static final RegistryObject<SpawnEggItem> CHOCOLATE_CUBE_SPAWN_EGG = register("chocolate_cube_spawn_egg",
-            new SpawnEggItem(ModEntities.CHOCOLATE_SLIME, 3407872, 96512,
+            new SpawnEggItem(ModEntities.CHOCOLATE_SLIME.get(), 3407872, 96512,
                     (new Item.Properties()).group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
 
     //Door and Trapdoor items
