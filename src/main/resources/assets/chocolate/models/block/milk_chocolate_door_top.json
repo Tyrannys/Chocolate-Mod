@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top",
+    "textures": {
+        "bottom": "chocolate:blocks/milk_chocolate_door_bottom",
+        "top": "chocolate:blocks/milk_chocolate_door_top"
+    }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "chocolate:block/chocolate_grass_side",
+    "bottom": "chocolate:block/chocolate_dirt",
+    "top": "chocolate:block/chocolate_grass_top"
+  }
+}

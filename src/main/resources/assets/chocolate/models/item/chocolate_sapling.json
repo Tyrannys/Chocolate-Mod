@@ -1,0 +1,6 @@
+{
+  "parent": "chocolate:item/generated",
+  "textures": {
+    "layer0": "chocolate:block/chocolate_sapling"
+  }
+}

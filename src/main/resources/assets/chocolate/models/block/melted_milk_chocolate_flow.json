@@ -1,0 +1,6 @@
+{
+"parent": "block/cube_all",
+  "textures": {
+    "particle": "chocolate:block/melted_milk_chocolate_flow"
+  }
+}

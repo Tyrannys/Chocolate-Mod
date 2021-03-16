@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "chocolate:block/dark_chocolate_block_side",
+    "up": "chocolate:block/dark_chocolate_block_top",
+    "north": "chocolate:block/dark_chocolate_block_side",
+    "south": "chocolate:block/dark_chocolate_block_side",
+    "east": "chocolate:block/dark_chocolate_block_side",
+    "west": "chocolate:block/dark_chocolate_block_side",
+    "particle": "chocolate:block/dark_chocolate_block_side"
+  }
+}
