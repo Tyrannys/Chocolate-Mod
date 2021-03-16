@@ -24,7 +24,7 @@ public class ModEntities {
 
    public static RegistryObject<EntityType<EntityChocolateSlime>> CHOCOLATE_SLIME = ENTITIES.register("chocolate_slime",
            () -> EntityType.Builder.<EntityChocolateSlime>create(EntityChocolateSlime::new, EntityClassification.MONSTER)
-                   .build("chocolate_slime"));
+                   .build(new ResourceLocation(chocolate.MODID, "chocolate_slime").toString()));
 
 
     // public static final EntityType<CatEntity> CAT =
