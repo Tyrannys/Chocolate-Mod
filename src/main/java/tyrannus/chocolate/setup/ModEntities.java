@@ -26,9 +26,4 @@ public class ModEntities {
            () -> EntityType.Builder.<EntityChocolateSlime>create(EntityChocolateSlime::new, EntityClassification.MONSTER)
                    .build(new ResourceLocation(chocolate.MODID, "chocolate_slime").toString()));
 
-
-    // public static final EntityType<CatEntity> CAT =
-    // register("cat", EntityType.Builder.<CatEntity>create(CatEntity::new,
-    // EntityClassification.CREATURE).size(0.6F, 0.7F).trackingRange(8));
-
 }

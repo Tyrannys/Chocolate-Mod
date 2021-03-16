@@ -40,8 +40,8 @@ public class chocolate {
 
         ModFluids.init();
         ModBlocks.init();
-        ModItems.init();
         ModEntities.init();
+        ModItems.init();
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FluidGeneration::generateFluids);
 
