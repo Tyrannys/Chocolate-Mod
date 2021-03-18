@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import tyrannus.chocolate.chocolate;
 import tyrannus.chocolate.init.items.ChocolateChipsItem;
 import tyrannus.chocolate.init.special.ChocolateItemGroup;
+import tyrannus.chocolate.init.special.ModMathHelper;
 
 import static tyrannus.chocolate.setup.ModBlocks.*;
 
@@ -102,9 +103,7 @@ public class ModItems{
                     .maxStackSize(1).containerItem(Items.BUCKET).food(ModFoods.DARK_CHOCOLATE)
             )
     );
-    public static final RegistryObject<SpawnEggItem> CHOCOLATE_CUBE_SPAWN_EGG = register("chocolate_cube_spawn_egg",
-            new SpawnEggItem(ModEntities.CHOCOLATE_SLIME.get(), 3407872, 96512,
-                    (new Item.Properties()).group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
+
 
     //Door and Trapdoor items
     public static final RegistryObject<BlockItem> CHOCOLATE_DOOR = ITEMS.register("chocolate_door",()->
@@ -129,6 +128,7 @@ public class ModItems{
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
 
 
+
     //Bucket Items
     public static final RegistryObject<BucketItem> MELTED_MILK_CHOCOLATE_BUCKET = register("melted_milk_chocolate_bucket", new BucketItem(ModFluids.MILKMELTEDCHOCOLATE, (new Item.Properties())
             .containerItem(Items.BUCKET).maxStackSize(1).group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
@@ -136,6 +136,12 @@ public class ModItems{
             .containerItem(Items.BUCKET).maxStackSize(1).group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
     public static final RegistryObject<BucketItem> MELTED_DARK_CHOCOLATE_BUCKET = register("melted_dark_chocolate_bucket", new BucketItem(ModFluids.MELTEDDARKCHOCOLATE, (new Item.Properties())
             .containerItem(Items.BUCKET).maxStackSize(1).group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
+
+    //SpawnEgg Items
+    public static final RegistryObject<ModSpawnEggItem> CHOCOLATE_SPAWN_EGG = ITEMS.register("spawn_egg_chocolate_slime",
+            () -> new ModSpawnEggItem(() -> ModEntities.CHOCOLATE_SLIME.get(), ModMathHelper.getColor(32, 42, 176),
+                    ModMathHelper.getColor(115, 225, 249), new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
+
 
 
 
