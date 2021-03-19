@@ -8,6 +8,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -67,6 +68,7 @@ public class chocolate {
         LOGGER.info("The Pre-Chocoinator");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
+        ModEntities.EntityAttributeCreationEvent();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

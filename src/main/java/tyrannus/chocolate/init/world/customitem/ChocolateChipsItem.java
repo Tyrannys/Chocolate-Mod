@@ -14,7 +14,9 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 
-public class ChocolateChipsItem extends Item {
+/*public class ChocolateChipsItem extends Item {
+
+    //placeholder code for an item I may put flavor text on
 
     public ChocolateChipsItem() {
         super(new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
@@ -32,4 +34,4 @@ public class ChocolateChipsItem extends Item {
 
         }
     }
-}
+}*/

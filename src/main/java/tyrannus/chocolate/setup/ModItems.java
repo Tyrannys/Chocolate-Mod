@@ -1,19 +1,14 @@
 package tyrannus.chocolate.setup;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import tyrannus.chocolate.chocolate;
-import tyrannus.chocolate.init.entities.EntityChocolateSlime;
-import tyrannus.chocolate.init.special.ModSpawnEggItem;
-import tyrannus.chocolate.init.world.customitem.ChocolateChipsItem;
 import tyrannus.chocolate.init.special.ChocolateItemGroup;
 import tyrannus.chocolate.init.special.ModMathHelper;
-
-import java.util.function.Supplier;
+import tyrannus.chocolate.init.special.ModSpawnEggItem;
 
 import static tyrannus.chocolate.setup.ModBlocks.*;
 
@@ -27,8 +22,8 @@ public class ModItems{
     }
     //Registering Items
 
-    //special Items (Have Subtext)
-    public static RegistryObject<Item> CHOCOLATE_CHIPS = ITEMS.register("chocolate_chips", ChocolateChipsItem::new);
+    //special Items (Have Subtext) // nothing yet, but I may use it // placeholder code so I remember how to register it
+   // public static RegistryObject<Item> CHOCOLATE_CHIPS = ITEMS.register("chocolate_chips", ChocolateChipsItem::new);
 
     //blockitems
     public static RegistryObject<BlockItem> CHOCOLATE_ORE_ITEM = ITEMS.register("chocolate_ore",()->
@@ -70,6 +65,13 @@ public class ModItems{
 
 
     //actual items
+    public static RegistryObject<Item> CHOCOLATE_CHIPS = register("chocolate_chips",
+            new Item(
+                    new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP).food(ModFoods.CHOCOLATE_CHIPS)
+            )
+    );
+
+
     public static RegistryObject<Item> CHOCOLATE = register("chocolate",
             new Item(
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP).food(ModFoods.CHOCOLATE)
