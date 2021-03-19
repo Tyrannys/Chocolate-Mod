@@ -27,12 +27,12 @@ public abstract class MilkMeltedChocolate extends ForgeFlowingFluid
 {
     public MilkMeltedChocolate()
     {
-        super(new Properties(() -> ModFluids.MILKMELTEDCHOCOLATE.get(), () ->
-                ModFluids.FLOWINGMILKMELTEDCHOCOLATE.get(), FluidAttributes.builder(
+        super(new Properties(ModFluids.MILKMELTEDCHOCOLATE, ModFluids.FLOWINGMILKMELTEDCHOCOLATE,
+                FluidAttributes.builder(
                 new ResourceLocation(chocolate.MODID, "block/melted_milk_chocolate_still"),
                 new ResourceLocation(chocolate.MODID, "block/melted_milk_chocolate_flow"))
                 .sound(SoundEvents.ITEM_BUCKET_FILL, SoundEvents.ITEM_BUCKET_EMPTY).density(50)
-                .viscosity(25)).block(() -> ModBlocks.MILK_MELTED_CHOCOLATE.get()));
+                .viscosity(25)).block(ModBlocks.MILK_MELTED_CHOCOLATE));
     }
     @OnlyIn(Dist.CLIENT)
     public void animateTick(World worldIn, BlockPos pos, FluidState state, Random random) {
@@ -43,7 +43,7 @@ public abstract class MilkMeltedChocolate extends ForgeFlowingFluid
         }
     }
     public BlockState getBlockState(FluidState state) {
-        return ModBlocks.MILK_MELTED_CHOCOLATE.get().getDefaultState().with(FlowingFluidBlock.LEVEL, Integer.valueOf(getLevelFromState(state)));
+        return ModBlocks.MILK_MELTED_CHOCOLATE.get().getDefaultState().with(FlowingFluidBlock.LEVEL, getLevelFromState(state));
     }
 
     public int getSlopeFindDistance(IWorldReader worldIn) {

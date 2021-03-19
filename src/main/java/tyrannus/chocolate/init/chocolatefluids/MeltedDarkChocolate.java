@@ -26,12 +26,11 @@ public abstract class MeltedDarkChocolate extends ForgeFlowingFluid
 {
     public MeltedDarkChocolate()
     {
-        super(new Properties(() -> ModFluids.MELTEDDARKCHOCOLATE.get(), () ->
-                ModFluids.FLOWINGDARKMELTEDCHOCOLATE.get(), FluidAttributes.builder(
+        super(new Properties(ModFluids.MELTEDDARKCHOCOLATE, ModFluids.FLOWINGDARKMELTEDCHOCOLATE, FluidAttributes.builder(
                 new ResourceLocation(chocolate.MODID, "block/melted_dark_chocolate_still"),
                 new ResourceLocation(chocolate.MODID, "block/melted_dark_chocolate_flow"))
                 .sound(SoundEvents.ITEM_BUCKET_FILL, SoundEvents.ITEM_BUCKET_EMPTY).density(100)
-                .viscosity(30)).block(() -> ModBlocks.MELTED_DARK_CHOCOLATE.get()));
+                .viscosity(30)).block(ModBlocks.MELTED_DARK_CHOCOLATE));
     }
     @OnlyIn(Dist.CLIENT)
     public void animateTick(World worldIn, BlockPos pos, FluidState state, Random random) {
@@ -42,7 +41,7 @@ public abstract class MeltedDarkChocolate extends ForgeFlowingFluid
         }
     }
     public BlockState getBlockState(FluidState state) {
-        return ModBlocks.MELTED_DARK_CHOCOLATE.get().getDefaultState().with(FlowingFluidBlock.LEVEL, Integer.valueOf(getLevelFromState(state)));
+        return ModBlocks.MELTED_DARK_CHOCOLATE.get().getDefaultState().with(FlowingFluidBlock.LEVEL, getLevelFromState(state));
     }
 
     @Override

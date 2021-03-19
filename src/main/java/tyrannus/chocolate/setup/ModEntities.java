@@ -21,7 +21,7 @@ public class ModEntities {
 
     public static final String CHOCOLATE_SLIME_NAME = "chocolate_slime";
     public static final RegistryObject<EntityType<EntityChocolateSlime>> CHOCOLATE_SLIME = ENTITIES.register(CHOCOLATE_SLIME_NAME, () ->
-            EntityType.Builder.<EntityChocolateSlime>create(EntityChocolateSlime::new, EntityClassification.MONSTER)
+            EntityType.Builder.create(EntityChocolateSlime::new, EntityClassification.MONSTER)
                     .size(2.04F,2.04F)
                     .build(new ResourceLocation(chocolate.MODID, CHOCOLATE_SLIME_NAME).toString())
     );

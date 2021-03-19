@@ -1,14 +1,19 @@
 package tyrannus.chocolate.setup;
 
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import tyrannus.chocolate.chocolate;
+import tyrannus.chocolate.init.entities.EntityChocolateSlime;
+import tyrannus.chocolate.init.special.ModSpawnEggItem;
 import tyrannus.chocolate.init.world.customitem.ChocolateChipsItem;
 import tyrannus.chocolate.init.special.ChocolateItemGroup;
 import tyrannus.chocolate.init.special.ModMathHelper;
+
+import java.util.function.Supplier;
 
 import static tyrannus.chocolate.setup.ModBlocks.*;
 
@@ -143,14 +148,14 @@ public class ModItems{
 
 
 
+    // public ModSpawnEggItem(Supplier<EntityType<?>> typeIn, int primaryColorIn, int secondaryColorIn,
+    //                           Properties builder) {
+
+
 
     //register methods
     private static <T extends Item> RegistryObject<T> register(String id, T item)
     {
         return ModItems.ITEMS.register(id,() -> item);
-    }
-
-    private static <T extends BlockItem> RegistryObject<T> register(String id, T item) {
-        return ModItems.ITEMS.register(id, () -> item);
     }
 }

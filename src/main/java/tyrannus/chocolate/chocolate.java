@@ -73,6 +73,7 @@ public class chocolate {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
         RenderTypeLookup.setRenderLayer(ModBlocks.MILK_CHOCOLATE_DOOR.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.MILK_CHOCOLATE_TRAPDOOR.get(), RenderType.getCutout());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

@@ -1,9 +1,13 @@
 package tyrannus.chocolate.data.client;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.TrapDoorBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import tyrannus.chocolate.chocolate;
 import tyrannus.chocolate.setup.ModBlocks;
 
@@ -15,8 +19,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         simpleBlock(ModBlocks.CHOCOLATE_DIRT.get());
-
-        //DoorBlock registry
+        simpleBlock(ModBlocks.CHOCOLATE_ORE.get());
+        //DoorBlock providers
         //one texture
         {
             ResourceLocation top = modLoc("block/chocolate_door_top");
@@ -33,13 +37,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
             ResourceLocation bottom = modLoc("block/dark_chocolate_door_top");
             doorBlock(ModBlocks.DARK_CHOCOLATE_DOOR.get(), top, bottom);
         }
+        //Trap door providers
         {
             ResourceLocation block = modLoc("block/chocolate_trapdoor");
             trapdoorBlock(ModBlocks.CHOCOLATE_TRAPDOOR.get(), block, true);
         }
-        //public void trapdoorBlock(TrapDoorBlock block, String name, ResourceLocation texture, boolean orientable) {
-        //        trapdoorBlockInternal(block, name + "_trapdoor", texture, orientable);
-        //    }
+        {
+            ResourceLocation block = modLoc("block/milk_chocolate_trapdoor");
+            trapdoorBlock(ModBlocks.MILK_CHOCOLATE_TRAPDOOR.get(), block, true);
+        }
+        {
+            ResourceLocation block = modLoc("block/dark_chocolate_trapdoor");
+            trapdoorBlock(ModBlocks.DARK_CHOCOLATE_TRAPDOOR.get(), block, true);
+        }
+
 
         //Blocks with more than one texture
         {
@@ -72,6 +83,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
                             .texture("particle", side));
         }
 
-
     }
+
 }

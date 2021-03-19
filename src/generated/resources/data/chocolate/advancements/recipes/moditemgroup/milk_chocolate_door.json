@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "chocolate:chocolate_two"
+      "chocolate:milk_chocolate_door"
     ]
   },
   "criteria": {
-    "has_cocoa_beans": {
+    "has_item": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:cocoa_beans"
+            "item": "chocolate:milk_chocolate"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "chocolate:chocolate_two"
+        "recipe": "chocolate:milk_chocolate_door"
       }
     }
   },
   "requirements": [
     [
-      "has_cocoa_beans",
+      "has_item",
       "has_the_recipe"
     ]
   ]

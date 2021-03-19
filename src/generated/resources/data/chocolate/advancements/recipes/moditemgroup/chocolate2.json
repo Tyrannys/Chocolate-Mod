@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "chocolate:chocolate2"
+    ]
+  },
+  "criteria": {
+    "has_cocoa_beans": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:cocoa_beans"
+          }
+        ]
+      }
+    },
+    "has_sugar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:sugar"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "chocolate:chocolate2"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cocoa_beans",
+      "has_sugar",
+      "has_the_recipe"
+    ]
+  ]
+}

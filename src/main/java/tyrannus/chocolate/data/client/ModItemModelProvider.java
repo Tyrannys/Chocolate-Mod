@@ -15,10 +15,16 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        //blocks
         withExistingParent("chocolate_ore", modLoc("block/chocolate_ore"));
         withExistingParent("chocolate_block", modLoc("block/chocolate_block"));
         withExistingParent("dark_chocolate_block", modLoc("block/dark_chocolate_block"));
         withExistingParent("milk_chocolate_block", modLoc("block/milk_chocolate_block"));
+        withExistingParent("chocolate_trapdoor", modLoc("block/chocolate_trapdoor_bottom"));
+        withExistingParent("milk_chocolate_trapdoor", modLoc("block/milk_chocolate_trapdoor_bottom"));
+        withExistingParent("dark_chocolate_trapdoor", modLoc("block/dark_chocolate_trapdoor_bottom"));
+        //Spawn Egg .json files
+        withExistingParent("spawn_egg_chocolate_slime", mcLoc("item/template_spawn_egg"));
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
         //Items generated .json files

@@ -10,7 +10,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import tyrannus.chocolate.chocolate;
-import tyrannus.chocolate.init.special.ChocolateItemGroup;
 
 import javax.annotation.Nullable;
 import java.util.function.Function;
@@ -85,10 +84,6 @@ public class ModBlocks {
                     .doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops()));
 
 
-    private static <T extends Block> RegistryObject<T> register(String id, T block)
-    {
-        return register(id, block, block1 -> new BlockItem(block1, new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
-    }
 
     private static <T extends FlowingFluidBlock> RegistryObject<FlowingFluidBlock> register(String id, T block)
     {

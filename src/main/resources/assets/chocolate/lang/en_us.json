@@ -19,8 +19,14 @@
 	"item.chocolate.dark_chocolate_bucket": "Dark Chocolate Bucket",
 	"entity.chocolate.chocolate_slime": "Chocolate Slime",
 	"item.chocolate.chocolate_cube": "Chocolate Cube",
-	"item.chocolate.chocolate_cube_spawn_egg": "Chocolate Cube Spawn Egg",
 	"item.chocolate.melted_dark_chocolate_bucket": "Melted Dark Chocolate Bucket",
+	"item.chocolate.chocolate_trapdoor": "Chocolate Trapdoor",
+	"item.chocolate.milk_chocolate_trapdoor": "Milk Chocolate Trapdoor",
+	"item.chocolate.dark_chocolate_trapdoor": "Dark Chocolate Trapdoor",
+	"item.chocolate.chocolate_door": "Chocolate Door",
+	"item.chocolate.milk_chocolate_door": "Milk Chocolate Door",
+	"item.chocolate.dark_chocolate_door": "Dark Chocolate Door",
+	"item.chocolate.spawn_egg_chocolate_slime": "Chocolate Slime Spawn Egg",
 
 	"block.chocolate.chocolate_ore": "Chocolate Ore",
 	"block.chocolate.chocolate_block": "Chocolate Block",
@@ -28,7 +34,15 @@
 	"block.chocolate.milk_chocolate_block": "Milk Chocolate Block",
 	"block.chocolate.chocolate_dirt": "Chocolate Dirt",
 	"block.chocolate.chocolate_grass": "Chocolate Grass",
+	"block.chocolate.chocolate_trapdoor": "Chocolate Trapdoor",
 	"block.chocolate.melted_chocolate": "Melted Chocolate",
 	"block.chocolate.melted_milk_chocolate": "Melted Milk Chocolate",
-	"block.chocolate.melted_dark_chocolate": "Melted Dark Chocolate"
+	"block.chocolate.melted_dark_chocolate": "Melted Dark Chocolate",
+	"block.chocolate.chocolate_trapdoor": "Chocolate Trapdoor",
+	"block.chocolate.milk_chocolate_trapdoor": "Milk Chocolate Trapdoor",
+	"block.chocolate.dark_chocolate_trapdoor": "Dark Chocolate Trapdoor",
+	"block.chocolate.chocolate_door": "Chocolate Door",
+	"block.chocolate.milk_chocolate_door": "Milk Chocolate Door",
+	"block.chocolate.dark_chocolate_door": "Dark Chocolate Door"
+	
 }
