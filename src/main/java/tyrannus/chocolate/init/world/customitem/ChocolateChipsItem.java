@@ -1,4 +1,4 @@
-package tyrannus.chocolate.init.items;
+package tyrannus.chocolate.init.world.customitem;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;

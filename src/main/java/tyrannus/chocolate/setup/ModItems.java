@@ -1,13 +1,12 @@
 package tyrannus.chocolate.setup;
 
-import net.minecraft.block.TrapDoorBlock;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import tyrannus.chocolate.chocolate;
-import tyrannus.chocolate.init.items.ChocolateChipsItem;
+import tyrannus.chocolate.init.world.customitem.ChocolateChipsItem;
 import tyrannus.chocolate.init.special.ChocolateItemGroup;
 import tyrannus.chocolate.init.special.ModMathHelper;
 

@@ -45,11 +45,11 @@ public class ModBlocks {
     );
 
     public static final RegistryObject<Block> CHOCOLATE_DIRT = BLOCKS.register("chocolate_dirt", () ->
-            new Block(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.0F)
+            new Block(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(1.0F, 1.0F)
                     .sound(SoundType.GROUND).harvestLevel(1).harvestTool(ToolType.SHOVEL))
     );
     public static final RegistryObject<Block> CHOCOLATE_GRASS = BLOCKS.register("chocolate_grass", () ->
-            new Block(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 1.5F)
+            new Block(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(1.0F, 1.5F)
                     .sound(SoundType.GROUND).harvestLevel(1).harvestTool(ToolType.SHOVEL))
     );
 
