@@ -1,13 +1,9 @@
 package tyrannus.chocolate.data.client;
 
-import net.minecraft.block.DoorBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.FluidModel;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 import tyrannus.chocolate.chocolate;
 import tyrannus.chocolate.setup.ModBlocks;
 
@@ -20,12 +16,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         simpleBlock(ModBlocks.CHOCOLATE_DIRT.get());
 
-        }
-        // public void trapdoorBlock(TrapDoorBlock block, ResourceLocation texture, boolean orientable) {
-        //        trapdoorBlockInternal(block, block.getRegistryName().toString(), texture, orientable);
-
-
         //DoorBlock registry
+        //one texture
         {
             ResourceLocation top = modLoc("block/chocolate_door_top");
             ResourceLocation bottom = modLoc("block/chocolate_door_bottom");
@@ -41,10 +33,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
             ResourceLocation bottom = modLoc("block/dark_chocolate_door_top");
             doorBlock(ModBlocks.DARK_CHOCOLATE_DOOR.get(), top, bottom);
         }
+        {
+            ResourceLocation block = modLoc("block/chocolate_trapdoor");
+            trapdoorBlock(ModBlocks.CHOCOLATE_TRAPDOOR.get(), block, true);
+        }
+        //public void trapdoorBlock(TrapDoorBlock block, String name, ResourceLocation texture, boolean orientable) {
+        //        trapdoorBlockInternal(block, name + "_trapdoor", texture, orientable);
+        //    }
 
-
-
-        //Blocks with more than 1 texture
+        //Blocks with more than one texture
         {
             ResourceLocation side = modLoc("block/chocolate_block_side");
             ResourceLocation top = modLoc("block/chocolate_block_top");
@@ -77,3 +74,4 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
     }
+}

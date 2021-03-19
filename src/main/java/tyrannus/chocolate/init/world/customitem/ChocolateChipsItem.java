@@ -12,6 +12,7 @@ import tyrannus.chocolate.setup.ModFoods;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Objects;
 
 public class ChocolateChipsItem extends Item {
 
@@ -21,13 +22,13 @@ public class ChocolateChipsItem extends Item {
     }
 
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void addInformation(@Nullable ItemStack stack, @Nullable World worldIn,@Nullable List<ITextComponent> tooltip,@Nullable ITooltipFlag flagIn) {
 
         if(KeyboardUtil.isHoldingShift()) {
-            tooltip.add(new StringTextComponent("\u00A7e"+"Seems a bit rocky" + "\u00A7e"));
+            Objects.requireNonNull(tooltip).add(new StringTextComponent("\u00A7e"+"Seems a bit rocky" + "\u00A7e"));
 
         } else {
-            tooltip.add(new StringTextComponent("\u00A77"+"Hold "+"\u00A7e"+"shift "+"\u00A77"+"for more info" + "\u00A77"));
+            Objects.requireNonNull(tooltip).add(new StringTextComponent("\u00A77"+"Hold "+"\u00A7e"+"shift "+"\u00A77"+"for more info" + "\u00A77"));
 
         }
     }

@@ -87,21 +87,7 @@ public class ModItems{
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP).food(ModFoods.DARK_CHOCOLATE)
             )
     );
-    public static RegistryObject<Item> CHOCOLATE_BUCKET = register("chocolate_bucket",
-            new Item( new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
-                    .maxStackSize(1).containerItem(Items.BUCKET).food(ModFoods.CHOCOLATE)
-            )
-    );
-    public static RegistryObject<Item> MILK_CHOCOLATE_BUCKET = register("milk_chocolate_bucket",
-            new Item( new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
-                    .maxStackSize(1).containerItem(Items.BUCKET).food(ModFoods.MILK_CHOCOLATE)
-            )
-    );
-    public static RegistryObject<Item> DARK_CHOCOLATE_BUCKET = register("dark_chocolate_bucket",
-            new Item( new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
-                    .maxStackSize(1).containerItem(Items.BUCKET).food(ModFoods.DARK_CHOCOLATE)
-            )
-    );
+
 
 
     //Door and Trapdoor items
@@ -126,9 +112,23 @@ public class ModItems{
             new BlockItem(ModBlocks.DARK_CHOCOLATE_TRAPDOOR.get(),
                     new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
 
-
-
     //Bucket Items
+    public static RegistryObject<Item> CHOCOLATE_BUCKET = register("chocolate_bucket",
+            new Item( new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
+                    .maxStackSize(1).containerItem(Items.BUCKET)
+            )
+    );
+    public static RegistryObject<Item> MILK_CHOCOLATE_BUCKET = register("milk_chocolate_bucket",
+            new Item( new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
+                    .maxStackSize(1).containerItem(Items.BUCKET)
+            )
+    );
+    public static RegistryObject<Item> DARK_CHOCOLATE_BUCKET = register("dark_chocolate_bucket",
+            new Item( new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)
+                    .maxStackSize(1).containerItem(Items.BUCKET)
+            )
+    );
+    //fluid container buckets
     public static final RegistryObject<BucketItem> MELTED_MILK_CHOCOLATE_BUCKET = register("melted_milk_chocolate_bucket", new BucketItem(ModFluids.MILKMELTEDCHOCOLATE, (new Item.Properties())
             .containerItem(Items.BUCKET).maxStackSize(1).group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
     public static final RegistryObject<BucketItem> MELTED_CHOCOLATE_BUCKET = register("melted_chocolate_bucket", new BucketItem(ModFluids.MELTEDCHOCOLATE, (new Item.Properties())
@@ -138,7 +138,7 @@ public class ModItems{
 
     //SpawnEgg Items
     public static final RegistryObject<ModSpawnEggItem> CHOCOLATE_SPAWN_EGG = ITEMS.register("spawn_egg_chocolate_slime",
-            () -> new ModSpawnEggItem(() -> ModEntities.CHOCOLATE_SLIME.get(), ModMathHelper.getColor(32, 42, 176),
+            () -> new ModSpawnEggItem(ModEntities.CHOCOLATE_SLIME::get, ModMathHelper.getColor(32, 42, 176),
                     ModMathHelper.getColor(115, 225, 249), new Item.Properties().group(ChocolateItemGroup.CHOCOLATE_ITEM_GROUP)));
 
 

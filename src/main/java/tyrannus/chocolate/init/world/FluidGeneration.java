@@ -19,7 +19,15 @@ public class FluidGeneration {
                     .getDefaultState(), 3, 30, 60, 5
             );
         }
+        if(!(event.getCategory().equals(Biome.Category.NETHER) || event.getCategory().equals(Biome.Category.THEEND))) {
+            GenerateFluid(event.getGeneration(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, ModBlocks.MILK_MELTED_CHOCOLATE.get()
+                    .getDefaultState(), 5, 50, 80, 10
+            );
+        }
+
     }
+
+
 
 
 

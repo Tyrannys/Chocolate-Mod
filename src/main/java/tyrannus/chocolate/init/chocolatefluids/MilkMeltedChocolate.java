@@ -1,12 +1,10 @@
 package tyrannus.chocolate.init.chocolatefluids;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
@@ -20,8 +18,8 @@ import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import tyrannus.chocolate.chocolate;
 import tyrannus.chocolate.setup.ModBlocks;
-import tyrannus.chocolate.setup.ModItems;
 import tyrannus.chocolate.setup.ModFluids;
+import tyrannus.chocolate.setup.ModItems;
 
 import java.util.Random;
 
