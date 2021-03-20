@@ -2,16 +2,18 @@ package tyrannus.chocolate.setup;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import tyrannus.chocolate.chocolate;
 import tyrannus.chocolate.init.entities.EntityChocolateSlime;
+
+import java.util.Map;
 
 public class ModEntities {
 
@@ -29,8 +31,8 @@ public class ModEntities {
                     .build(new ResourceLocation(chocolate.MODID, CHOCOLATE_SLIME_NAME).toString())
     );
 
-    public static void EntityAttributeCreationEvent() {
-        GlobalEntityTypeAttributes.getAttributesForEntity(ModEntities.CHOCOLATE_SLIME.get());
+    public static void registerEntityAttributeCreationEvent() {
+        new EntityAttributeCreationEvent((Map<EntityType<? extends LivingEntity>, AttributeModifierMap>) EntityChocolateSlime.registerAttributes().create());
     }
 
 

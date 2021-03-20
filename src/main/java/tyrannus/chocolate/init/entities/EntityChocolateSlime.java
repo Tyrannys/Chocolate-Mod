@@ -2,6 +2,7 @@ package tyrannus.chocolate.init.entities;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.controller.MovementController;
@@ -71,11 +72,11 @@ public class EntityChocolateSlime extends SlimeEntity {
         this.experienceValue = size;
     }
 
-    public MutableAttribute MutableAttribute()
-    {
-        return LivingEntity.registerAttributes().createMutableAttribute(Attributes.MAX_HEALTH, 2.0).
-                createMutableAttribute(Attributes.FOLLOW_RANGE, 16.0).
-                createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.75);
+    public static AttributeModifierMap.MutableAttribute registerAttributes() {
+        return LivingEntity.registerAttributes()
+                .createMutableAttribute(Attributes.MAX_HEALTH, 2.0)
+                .createMutableAttribute(Attributes.FOLLOW_RANGE, 16.0)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.5);
     }
 
     /**

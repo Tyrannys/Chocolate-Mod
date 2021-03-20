@@ -5,6 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -18,6 +19,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import tyrannus.chocolate.init.entities.EntityChocolateSlime;
 import tyrannus.chocolate.init.world.FluidGeneration;
 import tyrannus.chocolate.init.world.OreGeneration;
 import tyrannus.chocolate.setup.ModBlocks;
@@ -26,6 +28,8 @@ import tyrannus.chocolate.setup.ModFluids;
 import tyrannus.chocolate.setup.ModItems;
 
 import java.util.stream.Collectors;
+
+import static tyrannus.chocolate.setup.ModEntities.registerEntityAttributeCreationEvent;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(chocolate.MODID)
@@ -50,6 +54,8 @@ public class chocolate {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+        // Register the entityAttributeCreation method for modloading
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::entityAttributeCreation);
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
@@ -57,8 +63,6 @@ public class chocolate {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-    //    MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
-
 
 
     }
@@ -68,8 +72,14 @@ public class chocolate {
         LOGGER.info("The Pre-Chocoinator");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
-        ModEntities.EntityAttributeCreationEvent();
+
     }
+
+
+    private void entityAttributeCreation(final EntityAttributeCreationEvent event) {
+        LOGGER.info("Entity attributes being created");
+
+    };
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
