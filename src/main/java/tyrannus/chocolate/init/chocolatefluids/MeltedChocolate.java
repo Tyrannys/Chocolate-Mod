@@ -2,20 +2,26 @@ package tyrannus.chocolate.init.chocolatefluids;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowingFluidBlock;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.minecraftforge.fml.common.Mod;
 import tyrannus.chocolate.chocolate;
 import tyrannus.chocolate.setup.ModBlocks;
 import tyrannus.chocolate.setup.ModFluids;
@@ -23,16 +29,15 @@ import tyrannus.chocolate.setup.ModItems;
 
 import java.util.Random;
 
-public abstract class MeltedChocolate extends ForgeFlowingFluid
-{
-    public MeltedChocolate()
-    {
+public abstract class MeltedChocolate extends ForgeFlowingFluid {
+    public MeltedChocolate() {
         super(new Properties(ModFluids.MELTEDCHOCOLATE, ModFluids.FLOWINGMELTEDCHOCOLATE, FluidAttributes.builder(
-                        new ResourceLocation(chocolate.MODID, "block/melted_chocolate_still"),
-                        new ResourceLocation(chocolate.MODID, "block/melted_chocolate_flow")).overlay(new ResourceLocation("block/water_overlay"))
-                        .sound(SoundEvents.ITEM_BUCKET_FILL, SoundEvents.ITEM_BUCKET_EMPTY).density(100)
-                        .viscosity(30)).block(ModBlocks.MELTED_CHOCOLATE));
+                new ResourceLocation(chocolate.MODID, "block/melted_chocolate_still"),
+                new ResourceLocation(chocolate.MODID, "block/melted_chocolate_flow")).overlay(new ResourceLocation("block/water_overlay"))
+                .sound(SoundEvents.ITEM_BUCKET_FILL, SoundEvents.ITEM_BUCKET_EMPTY).density(100)
+                .viscosity(30)).block(ModBlocks.MELTED_CHOCOLATE));
     }
+
     @OnlyIn(Dist.CLIENT)
     public void animateTick(World worldIn, BlockPos pos, FluidState state, Random random) {
         if (!state.isSource() && !state.get(FALLING)) {
@@ -41,6 +46,7 @@ public abstract class MeltedChocolate extends ForgeFlowingFluid
             }
         }
     }
+
     public BlockState getBlockState(FluidState state) {
         return ModBlocks.MELTED_CHOCOLATE.get().getDefaultState().with(FlowingFluidBlock.LEVEL, getLevelFromState(state));
     }
@@ -48,55 +54,50 @@ public abstract class MeltedChocolate extends ForgeFlowingFluid
     public int getSlopeFindDistance(IWorldReader worldIn) {
         return 3;
     }
+
     public int getTickRate(IWorldReader p_205569_1_) {
         return 35;
     }
+
     protected float getExplosionResistance() {
         return 100.0F;
     }
 
 
     @Override
-    public Item getFilledBucket()
-    {
+    public Item getFilledBucket() {
         return ModItems.MELTED_CHOCOLATE_BUCKET.get();
     }
 
-    public static class Source extends MeltedChocolate
-    {
+    public static class Source extends MeltedChocolate {
         @Override
-        public boolean isSource(FluidState state)
-        {
+        public boolean isSource(FluidState state) {
             return true;
         }
 
         @Override
-        public int getLevel(FluidState state)
-        {
+        public int getLevel(FluidState state) {
             return 8;
         }
     }
 
-    public static class Flowing extends MeltedChocolate
-    {
+    public static class Flowing extends MeltedChocolate {
         @Override
-        protected void fillStateContainer(StateContainer.Builder<Fluid, FluidState> builder)
-        {
+        protected void fillStateContainer(StateContainer.Builder<Fluid, FluidState> builder) {
             super.fillStateContainer(builder);
             builder.add(LEVEL_1_8);
         }
 
         @Override
-        public int getLevel(FluidState state)
-        {
+        public int getLevel(FluidState state) {
             return state.get(LEVEL_1_8);
         }
 
         @Override
-        public boolean isSource(FluidState state)
-        {
+        public boolean isSource(FluidState state) {
             return false;
         }
     }
+
 
 }

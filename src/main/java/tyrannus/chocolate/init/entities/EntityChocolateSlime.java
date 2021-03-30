@@ -8,6 +8,7 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -62,21 +63,14 @@ public class EntityChocolateSlime extends SlimeEntity {
         this.dataManager.set(SLIME_SIZE, size);
         this.recenterBoundingBox();
         this.recalculateSize();
-        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue((double)(size * size));
-        this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((double)(0.2F + 0.1F * (float)size));
-        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue((double)size);
+        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
+        this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2F + 0.1F * (float)size);
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
         if (resetHealth) {
             this.setHealth(this.getMaxHealth());
         }
 
         this.experienceValue = size;
-    }
-
-    public static AttributeModifierMap.MutableAttribute registerAttributes() {
-        return LivingEntity.registerAttributes()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 2.0)
-                .createMutableAttribute(Attributes.FOLLOW_RANGE, 16.0)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.5);
     }
 
     /**
@@ -105,7 +99,7 @@ public class EntityChocolateSlime extends SlimeEntity {
 
     protected void jump() {
         Vector3d vector3d = this.getMotion();
-        this.setMotion(vector3d.x, (double) (this.getJumpUpwardsMotion() + (float) this.getSlimeSize() * 0.1F), vector3d.z);
+        this.setMotion(vector3d.x, this.getJumpUpwardsMotion() + (float) this.getSlimeSize() * 0.1F, vector3d.z);
         this.isAirBorne = true;
         net.minecraftforge.common.ForgeHooks.onLivingJump(this);
     }
@@ -113,7 +107,7 @@ public class EntityChocolateSlime extends SlimeEntity {
     protected void handleFluidJump(ITag<Fluid> fluidTag) {
         if (fluidTag == FluidTags.LAVA) {
             Vector3d vector3d = this.getMotion();
-            this.setMotion(vector3d.x, (double) (0.22F + (float) this.getSlimeSize() * 0.05F), vector3d.z);
+            this.setMotion(vector3d.x, 0.22F + (float) this.getSlimeSize() * 0.05F, vector3d.z);
             this.isAirBorne = true;
         } else {
             super.handleFluidJump(fluidTag);
@@ -351,5 +345,8 @@ public class EntityChocolateSlime extends SlimeEntity {
 
             }
         }
+    }
+    public static AttributeModifierMap.MutableAttribute bakeAttributes() {
+        return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, 8D).createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25F);
     }
 }

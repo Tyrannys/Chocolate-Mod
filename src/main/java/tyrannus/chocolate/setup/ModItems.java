@@ -6,6 +6,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import tyrannus.chocolate.chocolate;
+import tyrannus.chocolate.init.entities.EntityChocolateSlime;
 import tyrannus.chocolate.init.special.ChocolateItemGroup;
 import tyrannus.chocolate.init.special.ModMathHelper;
 import tyrannus.chocolate.init.special.ModSpawnEggItem;

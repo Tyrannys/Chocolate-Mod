@@ -1,8 +1,14 @@
 package tyrannus.chocolate.setup;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.FlowingFluidBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.Fluids;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.ITag;
+import net.minecraft.util.registry.Registry;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -13,8 +19,11 @@ import tyrannus.chocolate.init.chocolatefluids.MeltedDarkChocolate;
 import tyrannus.chocolate.init.chocolatefluids.MilkMeltedChocolate;
 
 
-public class ModFluids extends Fluids {
+public class ModFluids {
 
+    public static final ITag.INamedTag<Fluid> CHOCOLATE = FluidTags.makeWrapperTag("chocolate");
+    public static final ITag.INamedTag<Fluid> MILK_CHOCOLATE = FluidTags.makeWrapperTag("milk_chocolate");
+    public static final ITag.INamedTag<Fluid> DARK_CHOCOLATE = FluidTags.makeWrapperTag("dark_chocolate");
 
     //Deferred register calls the block
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, chocolate.MODID);
@@ -41,4 +50,8 @@ public class ModFluids extends Fluids {
             FLUIDS.register("melted_dark_chocolate", MeltedDarkChocolate.Source::new);
     public static final RegistryObject<FlowingFluid> FLOWINGDARKMELTEDCHOCOLATE =
             FLUIDS.register("melted_dark_flowing_chocolate", MeltedDarkChocolate.Flowing::new);
+
+
+
+
 }

@@ -9,8 +9,8 @@ public class ModFoods {
     public static final Food CHOCOLATE_CHIPS;
     public static final Food DARK_CHOCOLATE;
     public static final Food CHOCOLATE_BALL;
-    public static Potion MELTED_CHOCOLATE_BUCKET;
-    public static Potion MELTED_MILK_CHOCOLATE_BUCKET;
+    public static final Potion MELTED_CHOCOLATE_BUCKET;
+    public static final Potion MELTED_MILK_CHOCOLATE_BUCKET;
 
     static {
         CHOCOLATE = (new Food.Builder()).hunger(2).saturation(1F).fastToEat().build();

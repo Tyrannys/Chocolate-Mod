@@ -1,19 +1,5 @@
 package tyrannus.chocolate.init.world.customitem;
 
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.world.World;
-import tyrannus.chocolate.init.special.ChocolateItemGroup;
-import tyrannus.chocolate.init.special.KeyboardUtil;
-import tyrannus.chocolate.setup.ModFoods;
-
-import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Objects;
-
 /*public class ChocolateChipsItem extends Item {
 
     //placeholder code for an item I may put flavor text on

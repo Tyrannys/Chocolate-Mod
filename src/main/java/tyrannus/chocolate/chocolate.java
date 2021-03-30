@@ -5,7 +5,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -19,7 +18,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import tyrannus.chocolate.init.entities.EntityChocolateSlime;
+import org.spongepowered.asm.mixin.transformer.meta.MixinProxy;
 import tyrannus.chocolate.init.world.FluidGeneration;
 import tyrannus.chocolate.init.world.OreGeneration;
 import tyrannus.chocolate.setup.ModBlocks;
@@ -29,17 +28,17 @@ import tyrannus.chocolate.setup.ModItems;
 
 import java.util.stream.Collectors;
 
-import static tyrannus.chocolate.setup.ModEntities.registerEntityAttributeCreationEvent;
-
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(chocolate.MODID)
 public class chocolate {
+
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "chocolate";
     public static IItemProvider CHOCOLATE_CHIPS;
     public static IItemProvider CHOCOLATE;
+
 
     public chocolate() {
 
@@ -79,7 +78,7 @@ public class chocolate {
     private void entityAttributeCreation(final EntityAttributeCreationEvent event) {
         LOGGER.info("Entity attributes being created");
 
-    };
+    }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
@@ -111,7 +110,7 @@ public class chocolate {
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
         // do something when the server starts
-        LOGGER.info("HELLO from server starting");
+        LOGGER.info("HELLO from the server starting");
     }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD

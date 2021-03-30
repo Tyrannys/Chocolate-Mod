@@ -2,8 +2,10 @@ package tyrannus.chocolate.setup;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.tags.ITag;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
