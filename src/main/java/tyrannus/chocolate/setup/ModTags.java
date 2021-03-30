@@ -1,6 +1,7 @@
 package tyrannus.chocolate.setup;
 
 import net.minecraft.block.Block;
+import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
@@ -8,6 +9,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import tyrannus.chocolate.chocolate;
 
 public class ModTags {
@@ -40,7 +42,7 @@ public class ModTags {
     }
 
     public static final class Fluids {
-        public static final ITag.INamedTag<Fluid> FLUIDS_CHOCOLATE = forge("fluids/chocolate");
+        public static final ITag.INamedTag<Fluid> CHOCOLATE = forge("fluids/chocolate");
 
 
         private static ITag.INamedTag<Fluid> forge(String path) {

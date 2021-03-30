@@ -67,9 +67,7 @@ public class chocolate {
         // some preinit code
         LOGGER.info("The Pre-Chocoinator");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-        event.enqueueWork(() -> {
-            registerEntityAttributes();
-        });
+        event.enqueueWork(ModEntities::registerEntityAttributes);
 
 
     }

@@ -13,6 +13,8 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.RegistryManager;
 import tyrannus.chocolate.chocolate;
 import tyrannus.chocolate.init.chocolatefluids.MeltedChocolate;
 import tyrannus.chocolate.init.chocolatefluids.MeltedDarkChocolate;
@@ -20,10 +22,6 @@ import tyrannus.chocolate.init.chocolatefluids.MilkMeltedChocolate;
 
 
 public class ModFluids {
-
-    public static final ITag.INamedTag<Fluid> CHOCOLATE = FluidTags.makeWrapperTag("chocolate");
-    public static final ITag.INamedTag<Fluid> MILK_CHOCOLATE = FluidTags.makeWrapperTag("milk_chocolate");
-    public static final ITag.INamedTag<Fluid> DARK_CHOCOLATE = FluidTags.makeWrapperTag("dark_chocolate");
 
     //Deferred register calls the block
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, chocolate.MODID);

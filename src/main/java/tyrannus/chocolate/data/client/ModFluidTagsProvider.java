@@ -20,9 +20,10 @@ public class ModFluidTagsProvider extends FluidTagsProvider {
 
     @Override
         protected void registerTags() {
-            getOrCreateBuilder(ModTags.Fluids.FLUIDS_CHOCOLATE)
+            getOrCreateBuilder(ModTags.Fluids.CHOCOLATE)
                     .add(ModFluids.FLOWINGMELTEDCHOCOLATE.get()).add(ModFluids.MELTEDCHOCOLATE.get())
                     .add(ModFluids.FLOWINGMILKMELTEDCHOCOLATE.get()).add(ModFluids.MILKMELTEDCHOCOLATE.get())
                     .add(ModFluids.FLOWINGDARKMELTEDCHOCOLATE.get()).add(ModFluids.MELTEDDARKCHOCOLATE.get());
+
         }
 }
