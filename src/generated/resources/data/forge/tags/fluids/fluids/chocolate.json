@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "chocolate:melted_flowing_chocolate",
+    "chocolate:melted_chocolate",
+    "chocolate:milk_melted_flowing_chocolate",
+    "chocolate:milk_melted_chocolate",
+    "chocolate:melted_dark_flowing_chocolate",
+    "chocolate:melted_dark_chocolate"
+  ]
+}

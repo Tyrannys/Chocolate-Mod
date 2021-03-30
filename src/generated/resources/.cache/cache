@@ -118,10 +118,11 @@ e6dc90341d14c99974044474d72a70e8b4ff1dfe data/chocolate/recipes/milk_chocolate_d
 2c6bb19841f4cda32489faf0cb992e2233d89f1a data/forge/tags/blocks/ores.json
 3847b46c42de48f6453b6209bc3c402b088c124e data/forge/tags/blocks/ores/chocolate.json
 b2674f1857965c05008c500adf0e72e82503a4a9 data/forge/tags/blocks/storage_blocks.json
-7aa56781ad80ad3799778055ccfcc27ba31ae339 data/forge/tags/blocks/storage_blocks/chocolate.json
+36d25793d57d67cd44706da47d6074c8160041f6 data/forge/tags/blocks/storage_blocks/chocolate.json
+e5bdbaaf183d94b2d2d951f5fcca908f1931268e data/forge/tags/fluids/fluids/chocolate.json
 d0812cd9074a10af0718094bbaa4b6f3b82985bd data/forge/tags/items/ingots.json
 45b4e6e7768e7eb1588844867c055c2bd69eb4b9 data/forge/tags/items/ingots/chocolate.json
 2c6bb19841f4cda32489faf0cb992e2233d89f1a data/forge/tags/items/ores.json
 3847b46c42de48f6453b6209bc3c402b088c124e data/forge/tags/items/ores/chocolate.json
 b2674f1857965c05008c500adf0e72e82503a4a9 data/forge/tags/items/storage_blocks.json
-7aa56781ad80ad3799778055ccfcc27ba31ae339 data/forge/tags/items/storage_blocks/chocolate.json
+36d25793d57d67cd44706da47d6074c8160041f6 data/forge/tags/items/storage_blocks/chocolate.json

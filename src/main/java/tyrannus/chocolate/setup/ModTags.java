@@ -29,7 +29,7 @@ public class ModTags {
         public static final ITag.INamedTag<Item> ORES_CHOCOLATE = forge("ores/chocolate");
         public static final ITag.INamedTag<Item> STORAGE_BLOCKS = forge("storage_blocks/chocolate");
 
-        public static final ITag.INamedTag<Item> CHOCOLATE = forge("ingots/chocolate");
+        public static final ITag.INamedTag<Item> INGOTS_CHOCOLATE = forge("ingots/chocolate");
 
         private static ITag.INamedTag<Item> forge(String path) {
             return ItemTags.makeWrapperTag(new ResourceLocation("forge", path).toString());

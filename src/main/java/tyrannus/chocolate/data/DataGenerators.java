@@ -25,6 +25,7 @@ public class DataGenerators {
         gen.addProvider(blockTags);
         gen.addProvider(new ModItemTagsProvider(gen, blockTags, existingFileHelper));
 
-
+        ModFluidTagsProvider fluidTags = new ModFluidTagsProvider(gen, existingFileHelper);
+        gen.addProvider(fluidTags);
     }
 }

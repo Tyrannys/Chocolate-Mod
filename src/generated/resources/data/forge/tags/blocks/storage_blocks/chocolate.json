@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "chocolate:chocolate_block",
-    "chocolate:milk_chocolate_block"
+    "chocolate:milk_chocolate_block",
+    "chocolate:dark_chocolate_block"
   ]
 }

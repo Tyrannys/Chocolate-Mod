@@ -46,6 +46,7 @@ public class ModFluids {
           FLUIDS.register("melted_chocolate", MeltedChocolate.Source::new);
     public static final RegistryObject<FlowingFluid> FLOWINGMELTEDCHOCOLATE =
             FLUIDS.register("melted_flowing_chocolate", MeltedChocolate.Flowing::new);
+
     public static final RegistryObject<FlowingFluid> MELTEDDARKCHOCOLATE =
             FLUIDS.register("melted_dark_chocolate", MeltedDarkChocolate.Source::new);
     public static final RegistryObject<FlowingFluid> FLOWINGDARKMELTEDCHOCOLATE =

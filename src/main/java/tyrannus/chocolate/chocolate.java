@@ -28,6 +28,8 @@ import tyrannus.chocolate.setup.ModItems;
 
 import java.util.stream.Collectors;
 
+import static tyrannus.chocolate.setup.ModEntities.registerEntityAttributes;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(chocolate.MODID)
 public class chocolate {
@@ -36,9 +38,6 @@ public class chocolate {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "chocolate";
-    public static IItemProvider CHOCOLATE_CHIPS;
-    public static IItemProvider CHOCOLATE;
-
 
     public chocolate() {
 
@@ -53,8 +52,6 @@ public class chocolate {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        // Register the entityAttributeCreation method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::entityAttributeCreation);
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
@@ -70,13 +67,10 @@ public class chocolate {
         // some preinit code
         LOGGER.info("The Pre-Chocoinator");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        event.enqueueWork(() -> {
+            registerEntityAttributes();
+        });
 
-
-    }
-
-
-    private void entityAttributeCreation(final EntityAttributeCreationEvent event) {
-        LOGGER.info("Entity attributes being created");
 
     }
 

@@ -23,7 +23,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         copy(ModTags.Blocks.STORAGE_BLOCKS, ModTags.Items.STORAGE_BLOCKS);
         copy(Tags.Blocks.STORAGE_BLOCKS, Tags.Items.STORAGE_BLOCKS);
 
-        getOrCreateBuilder(ModTags.Items.CHOCOLATE).add(ModItems.CHOCOLATE.get());
+        getOrCreateBuilder(ModTags.Items.INGOTS_CHOCOLATE).add(ModItems.CHOCOLATE.get());
         getOrCreateBuilder(Tags.Items.INGOTS).addTag(Tags.Items.INGOTS);
 
     }

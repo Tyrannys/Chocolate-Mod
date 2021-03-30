@@ -2,8 +2,8 @@ package tyrannus.chocolate.init.entities;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.Goal;
@@ -54,6 +54,10 @@ public class EntityChocolateSlime extends SlimeEntity {
         this.dataManager.register(SLIME_SIZE, 1);
     }
 
+    public static AttributeModifierMap.MutableAttribute getMutableAttributes() {
+        return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 6.0D)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2d);
+    }
 
     public boolean isNotColliding(IWorldReader worldIn) {
         return worldIn.checkNoEntityCollision(this) && !worldIn.containsAnyLiquid(this.getBoundingBox());
