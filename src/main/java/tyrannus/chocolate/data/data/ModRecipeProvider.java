@@ -1,24 +1,12 @@
-package tyrannus.chocolate.data.recipes;
+package tyrannus.chocolate.data.data;
 
-import net.minecraft.advancements.ICriterionInstance;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
-import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipe;
-import net.minecraft.item.crafting.ShapelessRecipe;
-import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.common.Mod;
 import tyrannus.chocolate.chocolate;
 import tyrannus.chocolate.setup.ModBlocks;
-import tyrannus.chocolate.setup.ModFluids;
 import tyrannus.chocolate.setup.ModItems;
-import tyrannus.chocolate.setup.ModTags;
 
 import java.util.function.Consumer;
 

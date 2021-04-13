@@ -34,11 +34,15 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<EntityChocolateSlime>> CHOCOLATE_SLIME = ENTITIES.register("chocolate_slime",
             () -> EntityType.Builder.create(EntityChocolateSlime::new, EntityClassification.MONSTER)
+                    .size(2.04F, 2.04F).trackingRange(10)
                     .build(new ResourceLocation(chocolate.MODID, "chocolate_slime").toString()));
 
 
     public static void registerEntityAttributes() {
         GlobalEntityTypeAttributes.put(ModEntities.CHOCOLATE_SLIME.get(), EntityChocolateSlime.getMutableAttributes().create());
+    }
+    public static void registerAdditionalEntityInformation() {
+        registerEntityAttributes();
     }
 
 }

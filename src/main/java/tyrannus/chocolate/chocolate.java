@@ -5,20 +5,19 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.spongepowered.asm.mixin.transformer.meta.MixinProxy;
+import tyrannus.chocolate.data.client.entity.render.ChocolateSlimeRenderer;
 import tyrannus.chocolate.init.world.FluidGeneration;
 import tyrannus.chocolate.init.world.OreGeneration;
 import tyrannus.chocolate.setup.ModBlocks;
@@ -28,7 +27,7 @@ import tyrannus.chocolate.setup.ModItems;
 
 import java.util.stream.Collectors;
 
-import static tyrannus.chocolate.setup.ModEntities.registerEntityAttributes;
+import static tyrannus.chocolate.setup.ModEntities.registerAdditionalEntityInformation;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(chocolate.MODID)
@@ -36,7 +35,7 @@ public class chocolate {
 
 
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "chocolate";
 
     public chocolate() {
@@ -47,6 +46,8 @@ public class chocolate {
         ModItems.init();
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::generateOres);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FluidGeneration::generateFluids);
+        System.out.println("Registered RenderTNTLargePrimed from preint function");
+
 
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -67,8 +68,10 @@ public class chocolate {
         // some preinit code
         LOGGER.info("The Pre-Chocoinator");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-        event.enqueueWork(ModEntities::registerEntityAttributes);
+        event.enqueueWork(() -> {
+            registerAdditionalEntityInformation();
 
+        });
 
     }
 
@@ -77,6 +80,8 @@ public class chocolate {
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
         RenderTypeLookup.setRenderLayer(ModBlocks.MILK_CHOCOLATE_DOOR.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(ModBlocks.MILK_CHOCOLATE_TRAPDOOR.get(), RenderType.getCutout());
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.CHOCOLATE_SLIME.get(), ChocolateSlimeRenderer::new);
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

@@ -22,10 +22,7 @@ public class ModBlocks {
         public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, chocolate.MODID);
 
     //Attaches the deferred register to the event bus
-        public static void init()
-        {
-        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        }
+        public static void init() { BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus()); }
 
         //Normal Blocks
     public static final RegistryObject<Block> CHOCOLATE_ORE = BLOCKS.register("chocolate_ore", () ->

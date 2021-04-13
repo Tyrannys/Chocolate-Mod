@@ -1,6 +1,6 @@
 package tyrannus.chocolate.init.entities;
 
-import com.ibm.icu.impl.ICUService;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -34,7 +34,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
-public class EntityChocolateSlime extends MobEntity implements IMob {
+public class EntityChocolateSlime extends MobEntity implements IMob{
     private static final DataParameter<Integer> SLIME_SIZE = EntityDataManager.createKey(EntityChocolateSlime.class, DataSerializers.VARINT);
     public float squishAmount;
     public float squishFactor;
@@ -46,17 +46,16 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
         this.moveController = new EntityChocolateSlime.MoveHelperController(this);
     }
 
+    @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new EntityChocolateSlime.FloatGoal(this));
         this.goalSelector.addGoal(2, new EntityChocolateSlime.AttackGoal(this));
         this.goalSelector.addGoal(3, new EntityChocolateSlime.FaceRandomGoal(this));
         this.goalSelector.addGoal(5, new EntityChocolateSlime.HopGoal(this));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, (p_213811_1_) -> {
-            return Math.abs(p_213811_1_.getPosY() - this.getPosY()) <= 4.0D;
-        }));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, (p_213811_1_) -> Math.abs(p_213811_1_.getPosY() - this.getPosY()) <= 4.0D));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
     }
-
+    @Override
     protected void registerData() {
         super.registerData();
         this.dataManager.register(SLIME_SIZE, 1);
@@ -76,13 +75,17 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
         this.experienceValue = size;
     }
 
+    public static AttributeModifierMap.MutableAttribute getMutableAttributes() {
+        return MonsterEntity.func_234295_eP_();
+    }
     /**
      * Returns the size of the slime.
      */
+
     public int getSlimeSize() {
         return this.dataManager.get(SLIME_SIZE);
     }
-
+    @Override
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
         compound.putInt("Size", this.getSlimeSize() - 1);
@@ -92,6 +95,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
     /**
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
+    @Override
     public void readAdditional(CompoundNBT compound) {
         int i = compound.getInt("Size");
         if (i < 0) {
@@ -110,14 +114,12 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
     protected IParticleData getSquishParticle() {
         return ParticleTypes.ITEM_SLIME;
     }
-
+    @Override
     protected boolean isDespawnPeaceful() {
         return this.getSlimeSize() > 0;
     }
 
-    /**
-     * Called to update the entity's position/logic.
-     */
+    @Override
     public void tick() {
         this.squishFactor += (this.squishAmount - this.squishFactor) * 0.5F;
         this.prevSquishFactor = this.squishFactor;
@@ -151,10 +153,11 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
     /**
      * Gets the amount of time the slime needs to wait between jumps.
      */
+
     protected int getJumpDelay() {
         return this.rand.nextInt(20) + 10;
     }
-
+    @Override
     public void recalculateSize() {
         double d0 = this.getPosX();
         double d1 = this.getPosY();
@@ -162,7 +165,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
         super.recalculateSize();
         this.setPosition(d0, d1, d2);
     }
-
+    @Override
     public void notifyDataManagerChange(DataParameter<?> key) {
         if (SLIME_SIZE.equals(key)) {
             this.recalculateSize();
@@ -175,7 +178,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
 
         super.notifyDataManagerChange(key);
     }
-
+    @Override
     public EntityType<? extends EntityChocolateSlime> getType() {
         return (EntityType<? extends EntityChocolateSlime>)super.getType();
     }
@@ -183,7 +186,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
     @Override
     public void remove(boolean keepData) {
         int i = this.getSlimeSize();
-        if (!this.world.isRemote && i > 1 && this.getShouldBeDead() && !this.removed) {
+        if (!this.world.isRemote && i > 1 && this.getShouldBeDead() && !this.isAlive()) {
             ITextComponent itextcomponent = this.getCustomName();
             boolean flag = this.isAIDisabled();
             float f = (float)i / 4.0F;
@@ -213,6 +216,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
     /**
      * Applies a velocity to the entities, to push them away from eachother.
      */
+    @Override
     public void applyEntityCollision(Entity entityIn) {
         super.applyEntityCollision(entityIn);
         if (entityIn instanceof IronGolemEntity && this.canDamagePlayer()) {
@@ -224,6 +228,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
     /**
      * Called by a player entity when they collide with an entity
      */
+    @Override
     public void onCollideWithPlayer(PlayerEntity entityIn) {
         if (this.canDamagePlayer()) {
             this.dealDamage(entityIn);
@@ -241,7 +246,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
         }
 
     }
-
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
         return 0.625F * sizeIn.height;
     }
@@ -249,6 +254,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
     /**
      * Indicates weather the slime is able to damage the player (based upon the slime's size)
      */
+
     protected boolean canDamagePlayer() {
         return !this.isSmallSlime() && this.isServerWorld();
     }
@@ -256,15 +262,11 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
     protected float func_225512_er_() {
         return (float)this.getAttributeValue(Attributes.ATTACK_DAMAGE);
     }
-
-    public static AttributeModifierMap.MutableAttribute getMutableAttributes() {
-        return MonsterEntity.func_234295_eP_();
-    }
-
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
         return this.isSmallSlime() ? SoundEvents.ENTITY_SLIME_HURT_SMALL : SoundEvents.ENTITY_SLIME_HURT;
     }
-
+    @Override
     protected SoundEvent getDeathSound() {
         return this.isSmallSlime() ? SoundEvents.ENTITY_SLIME_DEATH_SMALL : SoundEvents.ENTITY_SLIME_DEATH;
     }
@@ -272,25 +274,25 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
     protected SoundEvent getSquishSound() {
         return this.isSmallSlime() ? SoundEvents.ENTITY_SLIME_SQUISH_SMALL : SoundEvents.ENTITY_SLIME_SQUISH;
     }
-
+    @Override
     protected ResourceLocation getLootTable() {
         return this.getSlimeSize() == 1 ? this.getType().getLootTable() : LootTables.EMPTY;
     }
 
-    public static boolean func_223366_c(EntityType<EntityChocolateSlime> p_223366_0_, IWorld p_223366_1_, SpawnReason reason, BlockPos p_223366_3_, Random randomIn) {
-        if (p_223366_1_.getDifficulty() != Difficulty.PEACEFUL) {
-            if (Objects.equals(p_223366_1_.func_242406_i(p_223366_3_), Optional.of(Biomes.SWAMP)) && p_223366_3_.getY() > 50 && p_223366_3_.getY() < 70 && randomIn.nextFloat() < 0.5F && randomIn.nextFloat() < p_223366_1_.getMoonFactor() && p_223366_1_.getLight(p_223366_3_) <= randomIn.nextInt(8)) {
-                return canSpawnOn(p_223366_0_, p_223366_1_, reason, p_223366_3_, randomIn);
+    public static boolean checkSlimeSpawnRules(EntityType<EntityChocolateSlime> EntityType, IServerWorld world, SpawnReason reason, BlockPos pos, Random randomIn) {
+        if (world.getDifficulty() != Difficulty.PEACEFUL) {
+            if (Objects.equals(world.func_242406_i(pos), Optional.of(Biomes.SWAMP)) && pos.getY() > 50 && pos.getY() < 70 && randomIn.nextFloat() < 0.5F && randomIn.nextFloat() < world.getMoonFactor() && world.getLight(pos) <= randomIn.nextInt(8)) {
+                return canSpawnOn(EntityType, world, reason, pos, randomIn);
             }
 
-            if (!(p_223366_1_ instanceof ISeedReader)) {
+            if (!(pos instanceof ISeedReader)) {
                 return false;
             }
 
-            ChunkPos chunkpos = new ChunkPos(p_223366_3_);
-            boolean flag = SharedSeedRandom.createSlimeChunkSpawningSeed(chunkpos.x, chunkpos.z, ((ISeedReader)p_223366_1_).getSeed(), 987234911L).nextInt(10) == 0;
-            if (randomIn.nextInt(10) == 0 && flag && p_223366_3_.getY() < 40) {
-                return canSpawnOn(p_223366_0_, p_223366_1_, reason, p_223366_3_, randomIn);
+            ChunkPos chunkpos = new ChunkPos(pos);
+            boolean flag = SharedSeedRandom.createSlimeChunkSpawningSeed(chunkpos.x, chunkpos.z, ((ISeedReader)world).getSeed(), 987234911L).nextInt(10) == 0;
+            if (randomIn.nextInt(10) == 0 && flag && pos.getY() < 40) {
+                return canSpawnOn(EntityType, world, reason, pos, randomIn);
             }
         }
 
@@ -348,7 +350,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
     protected SoundEvent getJumpSound() {
         return this.isSmallSlime() ? SoundEvents.ENTITY_SLIME_JUMP_SMALL : SoundEvents.ENTITY_SLIME_JUMP;
     }
-
+    @Override
     public EntitySize getSize(Pose poseIn) {
         return super.getSize(poseIn).scale(0.255F * (float)this.getSlimeSize());
     }
@@ -357,6 +359,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
      * Called when the slime spawns particles on landing, see onUpdate.
      * Return true to prevent the spawning of the default particles.
      */
+
     protected boolean spawnCustomParticles() { return false; }
 
     static class AttackGoal extends Goal {
@@ -372,6 +375,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
          * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
          * method as well.
          */
+        @Override
         public boolean shouldExecute() {
             LivingEntity livingentity = this.slime.getAttackTarget();
             if (livingentity == null) {
@@ -386,6 +390,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
         /**
          * Execute a one shot task or start executing a continuous task
          */
+        @Override
         public void startExecuting() {
             this.growTieredTimer = 300;
             super.startExecuting();
@@ -394,6 +399,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
         /**
          * Returns whether an in-progress EntityAIBase should continue executing
          */
+        @Override
         public boolean shouldContinueExecuting() {
             LivingEntity livingentity = this.slime.getAttackTarget();
             if (livingentity == null) {
@@ -410,8 +416,9 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
         /**
          * Keep ticking a continuous task that has already been started
          */
+        @Override
         public void tick() {
-            this.slime.faceEntity(this.slime.getAttackTarget(), 10.0F, 10.0F);
+            this.slime.faceEntity(Objects.requireNonNull(this.slime.getAttackTarget()), 10.0F, 10.0F);
             ((EntityChocolateSlime.MoveHelperController)this.slime.getMoveHelper()).setDirection(this.slime.rotationYaw, this.slime.canDamagePlayer());
         }
     }
@@ -509,7 +516,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
         public MoveHelperController(EntityChocolateSlime slimeIn) {
             super(slimeIn);
             this.slime = slimeIn;
-            this.yRot = 180.0F * slimeIn.rotationYaw / (float)Math.PI;
+            this.yRot = 180.0F * slimeIn.rotationYaw / (float) Math.PI;
         }
 
         public void setDirection(float yRotIn, boolean aggressive) {
@@ -531,7 +538,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
             } else {
                 this.action = MovementController.Action.WAIT;
                 if (this.mob.isOnGround()) {
-                    this.mob.setAIMoveSpeed((float)(this.speed * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
+                    this.mob.setAIMoveSpeed((float) (this.speed * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
                     if (this.jumpDelay-- <= 0) {
                         this.jumpDelay = this.slime.getJumpDelay();
                         if (this.isAggressive) {
@@ -548,7 +555,7 @@ public class EntityChocolateSlime extends MobEntity implements IMob {
                         this.mob.setAIMoveSpeed(0.0F);
                     }
                 } else {
-                    this.mob.setAIMoveSpeed((float)(this.speed * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
+                    this.mob.setAIMoveSpeed((float) (this.speed * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
                 }
 
             }

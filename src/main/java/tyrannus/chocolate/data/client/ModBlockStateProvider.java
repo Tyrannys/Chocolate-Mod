@@ -20,23 +20,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         simpleBlock(ModBlocks.CHOCOLATE_DIRT.get());
         simpleBlock(ModBlocks.CHOCOLATE_ORE.get());
-        //DoorBlock providers
         //one texture
-        {
-            ResourceLocation top = modLoc("block/chocolate_door_top");
-            ResourceLocation bottom = modLoc("block/chocolate_door_bottom");
-            doorBlock(ModBlocks.CHOCOLATE_DOOR.get(), top, bottom);
-        }
-        {
-            ResourceLocation top = modLoc("block/milk_chocolate_door_top");
-            ResourceLocation bottom = modLoc("block/milk_chocolate_door_bottom");
-            doorBlock(ModBlocks.MILK_CHOCOLATE_DOOR.get(), top, bottom);
-        }
-        {
-            ResourceLocation top = modLoc("block/dark_chocolate_door_bottom");
-            ResourceLocation bottom = modLoc("block/dark_chocolate_door_top");
-            doorBlock(ModBlocks.DARK_CHOCOLATE_DOOR.get(), top, bottom);
-        }
+
         //Trap door providers
         {
             ResourceLocation block = modLoc("block/chocolate_trapdoor");
@@ -53,6 +38,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
         //Blocks with more than one texture
+        //DoorBlock providers
+        {
+            ResourceLocation top = modLoc("block/chocolate_door_top");
+            ResourceLocation bottom = modLoc("block/chocolate_door_bottom");
+            doorBlock(ModBlocks.CHOCOLATE_DOOR.get(), top, bottom);
+        }
+        {
+            ResourceLocation top = modLoc("block/milk_chocolate_door_top");
+            ResourceLocation bottom = modLoc("block/milk_chocolate_door_bottom");
+            doorBlock(ModBlocks.MILK_CHOCOLATE_DOOR.get(), top, bottom);
+        }
+        {
+            ResourceLocation top = modLoc("block/dark_chocolate_door_bottom");
+            ResourceLocation bottom = modLoc("block/dark_chocolate_door_top");
+            doorBlock(ModBlocks.DARK_CHOCOLATE_DOOR.get(), top, bottom);
+        }
         {
             ResourceLocation side = modLoc("block/chocolate_block_side");
             ResourceLocation top = modLoc("block/chocolate_block_top");

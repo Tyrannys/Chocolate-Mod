@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import tyrannus.chocolate.chocolate;
 import tyrannus.chocolate.data.client.*;
-import tyrannus.chocolate.data.recipes.ModRecipeProvider;
+import tyrannus.chocolate.data.data.ModRecipeProvider;
 
 
 @Mod.EventBusSubscriber(modid = chocolate.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
