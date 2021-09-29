@@ -1,9 +1,9 @@
 package tyrannus.chocolate.client;
 
-import net.minecraft.client.gui.screen.inventory.ContainerScreen;
-import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.client.util.InputMappings;
+import net.minecraft.client.gui.screens.inventory.ContainerScreen;
 import net.minecraftforge.client.event.GuiContainerEvent;
+
+import javax.swing.text.JTextComponent;
 
 public class chocoGui extends GuiContainerEvent {
     public chocoGui(ContainerScreen guiContainer) {
@@ -11,7 +11,7 @@ public class chocoGui extends GuiContainerEvent {
     }
 
     public void openGui() {
-        new KeyBinding("Chocolate Gui", 221, "misc");
+       // new JTextComponent.KeyBinding("Chocolate Gui", 221, "misc");
     }
 
     //public KeyBinding(String description, int keyCode, String category) {

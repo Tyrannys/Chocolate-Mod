@@ -1,12 +1,9 @@
 package tyrannus.chocolate.data.client;
 
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.FluidTagsProvider;
-import net.minecraftforge.common.Tags;
+import net.minecraft.data.tags.FluidTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 import tyrannus.chocolate.chocolate;
-import tyrannus.chocolate.setup.ModBlocks;
 import tyrannus.chocolate.setup.ModFluids;
 import tyrannus.chocolate.setup.ModTags;
 
@@ -17,10 +14,8 @@ public class ModFluidTagsProvider extends FluidTagsProvider {
         super(gen, chocolate.MODID, existingFileHelper);
     }
 
-
-    @Override
         protected void registerTags() {
-            getOrCreateBuilder(ModTags.Fluids.CHOCOLATE)
+            tag(ModTags.Fluids.CHOCOLATE)
                     .add(ModFluids.FLOWINGMELTEDCHOCOLATE.get()).add(ModFluids.MELTEDCHOCOLATE.get())
                     .add(ModFluids.FLOWINGMILKMELTEDCHOCOLATE.get()).add(ModFluids.MILKMELTEDCHOCOLATE.get())
                     .add(ModFluids.FLOWINGDARKMELTEDCHOCOLATE.get()).add(ModFluids.MELTEDDARKCHOCOLATE.get());

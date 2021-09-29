@@ -1,11 +1,5 @@
 package tyrannus.chocolate.init.special;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.util.InputMappings;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import org.lwjgl.glfw.GLFW;
-
 public class KeyboardUtil {
     //I may use this later?
 

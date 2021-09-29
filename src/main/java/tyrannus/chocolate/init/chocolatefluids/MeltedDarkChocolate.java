@@ -1,16 +1,16 @@
 package tyrannus.chocolate.init.chocolatefluids;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.FlowingFluidBlock;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.item.Item;
-import net.minecraft.state.StateContainer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fluids.FluidAttributes;
@@ -29,23 +29,24 @@ public abstract class MeltedDarkChocolate extends ForgeFlowingFluid
         super(new Properties(ModFluids.MELTEDDARKCHOCOLATE, ModFluids.FLOWINGDARKMELTEDCHOCOLATE, FluidAttributes.builder(
                 new ResourceLocation(chocolate.MODID, "block/melted_dark_chocolate_still"),
                 new ResourceLocation(chocolate.MODID, "block/melted_dark_chocolate_flow"))
-                .sound(SoundEvents.ITEM_BUCKET_FILL, SoundEvents.ITEM_BUCKET_EMPTY).density(100)
+                .sound(SoundEvents.BUCKET_FILL, SoundEvents.BUCKET_EMPTY).density(100)
                 .viscosity(30)).block(ModBlocks.MELTED_DARK_CHOCOLATE));
     }
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(World worldIn, BlockPos pos, FluidState state, Random random) {
-        if (!state.isSource() && !state.get(FALLING)) {
+    public void animateTick(Level worldIn, BlockPos pos, FluidState state, Random random) {
+        if (!state.isSource() && !state.hasProperty(FALLING)) {
             if (random.nextInt(64) == 0) {
-                worldIn.playSound((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, SoundEvents.BLOCK_WATER_AMBIENT, SoundCategory.BLOCKS, random.nextFloat() * 0.25F + 0.75F, random.nextFloat() + 0.5F, false);
+                //                worldIn.playSound((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, SoundEvents.WATER_AMBIENT, SoundSource.BLOCKS, random.nextFloat() * 0.25F + 0.75F, random.nextFloat() + 0.5F, false);
+                worldIn.playLocalSound((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, SoundEvents.WATER_AMBIENT, SoundSource.BLOCKS, random.nextFloat() * 0.25F + 0.75F, random.nextFloat() + 0.5F, false);
+                //   public abstract void playSound(@Nullable Player p_46543_, double p_46544_, double p_46545_, double p_46546_, SoundEvent p_46547_, SoundSource p_46548_, float p_46549_, float p_46550_);
             }
         }
     }
-    public BlockState getBlockState(FluidState state) {
-        return ModBlocks.MELTED_DARK_CHOCOLATE.get().getDefaultState().with(FlowingFluidBlock.LEVEL, getLevelFromState(state));
+    public BlockState createLegacyBlock(FluidState state) {
+        return ModBlocks.MELTED_DARK_CHOCOLATE.get().defaultBlockState().setValue(FlowingFluid.LEVEL, getLegacyLevel(state));
     }
 
-    @Override
-    public Item getFilledBucket()
+    public BucketItem getBucket()
     {
         return ModItems.MELTED_DARK_CHOCOLATE_BUCKET.get();
     }
@@ -59,7 +60,7 @@ public abstract class MeltedDarkChocolate extends ForgeFlowingFluid
         }
 
         @Override
-        public int getLevel(FluidState state)
+        public int getAmount(FluidState state)
         {
             return 8;
         }
@@ -67,17 +68,16 @@ public abstract class MeltedDarkChocolate extends ForgeFlowingFluid
 
     public static class Flowing extends MeltedDarkChocolate
     {
-        @Override
-        protected void fillStateContainer(StateContainer.Builder<Fluid, FluidState> builder)
+        protected void createFluidStateDefinition(StateDefinition.Builder<Fluid, FluidState> builder)
         {
-            super.fillStateContainer(builder);
-            builder.add(LEVEL_1_8);
+            super.createFluidStateDefinition(builder);
+            builder.add(LEVEL);
         }
 
         @Override
-        public int getLevel(FluidState state)
+        public int getAmount(FluidState state)
         {
-            return state.get(LEVEL_1_8);
+            return state.getValue(LEVEL);
         }
 
         @Override
@@ -85,5 +85,6 @@ public abstract class MeltedDarkChocolate extends ForgeFlowingFluid
         {
             return false;
         }
+
     }
 }

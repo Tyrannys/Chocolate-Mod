@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "chocolate:chocolate_bucket"
-  },
-  "result": "chocolate:melted_chocolate_bucket",
-  "experience": 0.0,
-  "cookingtime": 200
-}
