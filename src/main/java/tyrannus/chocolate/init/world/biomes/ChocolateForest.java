@@ -1,33 +1,34 @@
 package tyrannus.chocolate.init.world.biomes;
 
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.data.worldgen.SurfaceBuilders;
+import net.minecraft.data.worldgen.SurfaceRuleData;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import tyrannus.chocolate.setup.ModEntities;
 
-public class ChocolateForest {
+public class ChocolateForest{
 
     protected ChocolateForest() {
         super();
     }
 
     protected void configureBiome(Biome.BiomeBuilder builder) {
-        builder.precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.FOREST).depth(-0.1F).temperature(0.6F).downfall(0.9F);
+        builder.precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.FOREST).temperature(0.6F).downfall(0.9F);
 
         builder.specialEffects((new BiomeSpecialEffects.Builder()).waterColor(329011).waterFogColor(329011).fogColor(12638463).skyColor(5).grassColorOverride(8769137).foliageColorOverride(0x63BF66).build());
     }
 
     protected void configureGeneration(BiomeGenerationSettings.Builder builder) {
-        builder.surfaceBuilder(SurfaceBuilders.GRASS);
+        SurfaceRuleData.overworld();
 
         BiomeDefaultFeatures.addDefaultOres(builder);
-        BiomeDefaultFeatures.addDefaultOverworldLandStructures(builder);
-        BiomeDefaultFeatures.addDefaultCarvers(builder);
+        BiomeDefaultFeatures.addDefaultCarversAndLakes(builder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
     }
     protected void configureMobSpawns(MobSpawnSettings.Builder builder) {

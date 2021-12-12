@@ -5,18 +5,20 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import tyrannus.chocolate.chocolate;
+import tyrannus.chocolate.Chocolate;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, chocolate.MODID, existingFileHelper);
+        super(generator, Chocolate.MODID, existingFileHelper);
     }
 
     @Override
     protected void registerModels() {
         //blocks
         withExistingParent("chocolate_ore", modLoc("block/chocolate_ore"));
+        withExistingParent("chocolate_dirt", modLoc("block/chocolate_dirt"));
+        withExistingParent("chocolate_grass", modLoc("block/chocolate_grass"));
         withExistingParent("chocolate_block", modLoc("block/chocolate_block"));
         withExistingParent("dark_chocolate_block", modLoc("block/dark_chocolate_block"));
         withExistingParent("milk_chocolate_block", modLoc("block/milk_chocolate_block"));

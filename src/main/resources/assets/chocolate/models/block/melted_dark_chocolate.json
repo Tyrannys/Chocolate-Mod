@@ -1,7 +1,0 @@
-{
-"parent": "block/cube_all",
-    "textures": {
-	"all": "chocolate:block/melted_dark_chocolate_still",
-        "particle": "chocolate:block/dark_chocolate_still"
-    }
-}

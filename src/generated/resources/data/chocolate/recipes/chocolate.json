@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "chocolate:chocolate_chips"
+    },
+    {
+      "item": "chocolate:chocolate_chips"
+    },
+    {
+      "item": "chocolate:chocolate_chips"
+    }
+  ],
+  "result": {
+    "item": "chocolate:chocolate"
+  }
+}

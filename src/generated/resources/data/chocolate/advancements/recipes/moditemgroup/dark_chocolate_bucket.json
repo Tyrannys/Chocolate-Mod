@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "chocolate:dark_chocolate_bucket"
+    ]
+  },
+  "criteria": {
+    "has_dark_chocolate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "chocolate:dark_chocolate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "chocolate:dark_chocolate_bucket"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_chocolate",
+      "has_the_recipe"
+    ]
+  ]
+}

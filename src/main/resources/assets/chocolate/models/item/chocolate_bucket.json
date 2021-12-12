@@ -1,7 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "particle": "chocolate:block/chocolate_block",
-    "layer0": "chocolate:item/chocolate_bucket"
-  }
-}

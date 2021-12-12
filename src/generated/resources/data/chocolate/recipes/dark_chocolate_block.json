@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "chocolate:dark_chocolate"
+    },
+    {
+      "item": "chocolate:dark_chocolate"
+    },
+    {
+      "item": "chocolate:dark_chocolate"
+    },
+    {
+      "item": "chocolate:dark_chocolate"
+    },
+    {
+      "item": "chocolate:dark_chocolate"
+    },
+    {
+      "item": "chocolate:dark_chocolate"
+    },
+    {
+      "item": "chocolate:dark_chocolate"
+    },
+    {
+      "item": "chocolate:dark_chocolate"
+    },
+    {
+      "item": "chocolate:dark_chocolate"
+    }
+  ],
+  "result": {
+    "item": "chocolate:dark_chocolate_block"
+  }
+}

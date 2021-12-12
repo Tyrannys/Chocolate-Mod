@@ -4,12 +4,14 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import tyrannus.chocolate.chocolate;
+import tyrannus.chocolate.Chocolate;
 import tyrannus.chocolate.setup.ModBlocks;
+
+import java.sql.ResultSet;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, chocolate.MODID, exFileHelper);
+        super(gen, Chocolate.MODID, exFileHelper);
     }
 
     @Override
@@ -31,6 +33,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
             ResourceLocation block = modLoc("block/dark_chocolate_trapdoor");
             trapdoorBlock(ModBlocks.DARK_CHOCOLATE_TRAPDOOR.get(), block, true);
         }
+
 
 
         //Blocks with more than one texture
@@ -79,6 +82,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     models().cube("chocolate_grass", bottom, top, side, side, side, side)
                             .texture("particle", side));
         }
+
 
     }
 

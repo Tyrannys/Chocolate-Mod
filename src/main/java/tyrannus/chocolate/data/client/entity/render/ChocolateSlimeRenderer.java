@@ -11,12 +11,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import tyrannus.chocolate.chocolate;
+import tyrannus.chocolate.Chocolate;
 import tyrannus.chocolate.init.entities.EntityChocolateSlime;
 
 @OnlyIn(Dist.CLIENT)
 public class ChocolateSlimeRenderer extends MobRenderer<EntityChocolateSlime, SlimeModel<EntityChocolateSlime>>{
-    private static final ResourceLocation TEXTURE = new ResourceLocation(chocolate.MODID, "textures/entity/chocolate_slime.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Chocolate.MODID, "textures/entity/chocolate_slime.png");
 
     public ChocolateSlimeRenderer(EntityRendererProvider.Context renderManagerIn) {
         super(renderManagerIn, new SlimeModel<>(renderManagerIn.bakeLayer(ModelLayers.SLIME)), 0.25F);

@@ -14,9 +14,9 @@ public class ModFoods {
 
     static {
         CHOCOLATE = (new FoodProperties.Builder()).nutrition(2).saturationMod(1F).build();
-        MILK_CHOCOLATE = (new FoodProperties.Builder()).nutrition(1).saturationMod(1F).fast().build();
-        CHOCOLATE_CHIPS = (new FoodProperties.Builder()).nutrition((int) .5).saturationMod(0.2F).fast().build();
-        CHOCOLATE_BALL = (new FoodProperties.Builder()).nutrition((int) .5).saturationMod(1F).build();
+        MILK_CHOCOLATE = (new FoodProperties.Builder()).nutrition((int) 1.5).saturationMod(1F).fast().build();
+        CHOCOLATE_CHIPS = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).fast().build();
+        CHOCOLATE_BALL = (new FoodProperties.Builder()).nutrition(1).saturationMod(1F).build();
         DARK_CHOCOLATE = (new FoodProperties.Builder()).nutrition(3).saturationMod(4F).build();
     }
     static {
